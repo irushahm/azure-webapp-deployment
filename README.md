@@ -94,7 +94,7 @@ COPY app.py app.py
 
 EXPOSE 8080
 
-CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=8080"]
 ```
 
 Let's build our docker image.
