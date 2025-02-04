@@ -1,5 +1,7 @@
 # Deploy Web App Container in Azure Container App using GitHub Actions 🚀
 
+![Activity Diagram](./assets/DeployApponAzure.png)
+
 This GitHub Action automates the deployment of a web application container to an Azure Container App.
 
 ## Prerequisites
