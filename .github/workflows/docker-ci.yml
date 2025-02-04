@@ -2,9 +2,6 @@ name: Deploy webapp container in Azure Container App
 
 on: push
 
-permissions:
-  id-token: write
-
 env:
   AZURE_CONTAINER_REGISTRY: irusha.azurecr.io
   CONTAINER_APP_NAME: mywebapp
