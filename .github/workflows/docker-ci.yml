@@ -7,7 +7,7 @@ permissions:
 
 env:
   AZURE_CONTAINER_REGISTRY: irusha.azurecr.io
-  CONTAINER_APP_NAME: webapp
+  CONTAINER_APP_NAME: mywebapp
   RESOURCE_GROUP: irusha
 
 jobs:
