@@ -1,14 +1,25 @@
-#Base image
+# Base image
 FROM python:3.10.0b3-alpine3.14
 
+# Set working directory
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+# Copy required files from the 'app' folder
+COPY app/app.py app/requirements.txt /app/
+COPY app/templates /app/templates
+COPY app/static /app/static
 
-RUN pip3 install -r requirements.txt
+# Install dependencies & system packages
+RUN apk add --no-cache gcc musl-dev python3-dev libffi-dev \
+    && pip3 install --no-cache-dir -r requirements.txt
 
-COPY app.py app.py
+# Set Flask environment
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=8080
 
+# Expose the application port
 EXPOSE 8080
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=8080"]
+# Use Gunicorn for production
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
