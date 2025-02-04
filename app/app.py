@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 import datetime
 import socket
+import platform
+import os
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
