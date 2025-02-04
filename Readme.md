@@ -1,4 +1,4 @@
-# Deploy Web App Container in Azure Container App
+# Deploy Web App Container in Azure Container App using GitHub Actions 🚀
 
 This GitHub Action automates the deployment of a web application container to an Azure Container App.
 
@@ -7,7 +7,7 @@ This GitHub Action automates the deployment of a web application container to an
 Before using this workflow, ensure you have:
 
 - An Azure Container Registry (ACR) and an Azure Container App set up.
-- The necessary secrets stored in your GitHub repository under **Settings > Secrets and variables > Actions**:
+- The necessary secrets should created & stored in your GitHub repository under **Settings > Secrets and variables > Actions**:
 
 | Secret Name            | Description                            |
 |------------------------|----------------------------------------|
@@ -22,7 +22,7 @@ Before using this workflow, ensure you have:
 
 This GitHub Action workflow consists of two main jobs:
 
-### 1. Push Docker Image to Azure Container Registry (ACR)
+### 1. Push Docker Image to Azure Container Registry (ACR) [CI]
 
 - **Check out the repository**: Pull the latest code from the repository.
 - **Log in to ACR**: Use `docker/login-action` to authenticate to your Azure Container Registry.
@@ -30,7 +30,7 @@ This GitHub Action workflow consists of two main jobs:
 - **Build the Docker image**: Use `docker/build-push-action` to build the Docker image based on your Dockerfile.
 - **Push the image to ACR**: Push the Docker image to your Azure Container Registry.
 
-### 2. Deploy to Azure Container Apps
+### 2. Deploy to Azure Container Apps [CD]
 
 - **Log in to Azure**: Use `azure/login` to authenticate to your Azure account.
 - **Deploy the container to Azure Container Apps**: Use `azure/container-apps-deploy-action` to deploy the Docker container to Azure Container Apps.
