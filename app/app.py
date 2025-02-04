@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import datetime
+from datetime import datetime 
 import socket
 import platform
 import os
